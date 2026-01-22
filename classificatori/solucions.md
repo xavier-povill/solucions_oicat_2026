@@ -178,7 +178,7 @@ int main() {
 ```
 </details>
 
-Per comprovar si els dos nombres són consecutius utilitzem `(x + 1) % 100000 == y or (y + 1) % 100000 == x`. Durant el concurs, diversos participants intentaven comprovar aquesta condició amb fórmules com `(x + 1) % 100000 == y or (x - 1) % 100000 == y`. El problema d'això és que quan prenem el mòdul d'un nombre negatiu, C++ retorna un nombre negatiu. Així doncs, si $x = 0$ i $y = 99999$, la condició `(x - 1) % 100000 == y` s'avaluarà com a `false`, ja que $(0 - 1) \, \\\% \, 100000 = -1 \neq 99999$.
+Per comprovar si els dos nombres són consecutius utilitzem `(x + 1) % 100000 == y or (y + 1) % 100000 == x`. Durant el concurs, diversos participants intentaven comprovar aquesta condició amb fórmules com `(x + 1) % 100000 == y or (x - 1) % 100000 == y`. El problema d'això és que quan prenem el mòdul d'un nombre negatiu, C++ retorna un nombre negatiu. Així doncs, si $x = 0$ i $y = 99999$, la condició `(x - 1) % 100000 == y` s'avaluarà com a `false`, ja que $(0 - 1) \hspace{0.1cm} \\\% \hspace{0.1cm} 100000 = -1 \neq 99999$.
 
 També era possible treballar només amb enters. Aleshores, per trobar quants dígits finals tenen en comú, comprovem primer si l'últim dígit és igual (fent `x % 10 == y % 10`) i, en cas que ho sigui, eliminem l'últim dígit (fent `x /= 10` i `y /= 10`). Ens quedaria el següent codi:
 
