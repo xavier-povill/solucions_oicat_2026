@@ -83,7 +83,7 @@ print("si" if any(map(lambda x : x%4 == 0, sumes)) else "no")
 
 ## [Problema C2. Renumeració de cases](https://jutge.org/problems/P90007) <a name="C2"/>
 
-Les cases amb número parell passen de tenir números $2, 4, 6, 8, ...$ a $-1, -2, -3, -4, ...$. Això ho podem expressar algebraicament com que la casa amb número $x$ passa a tenir el número $-x/2$.
+Les cases amb número parell passen de tenir números $2, 4, 6, 8, ...$ a $-1, -2, -3, -4, ...$ . Això ho podem expressar algebraicament com que la casa amb número $x$ passa a tenir el número $-x/2$.
 
 Per altra banda, les cases amb número senar passen de tenir números $1, 3, 5, 7, ...$ a $1, 2, 3, 4, ...$. És a dir, la casa amb número $x$ passa a tenir el número $(x + 1)/2$.
 
