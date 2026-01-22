@@ -77,5 +77,5 @@ print("si" if any(map(lambda x : x%4 == 0, sumes)) else "no")
 
 <details>
   <summary><b>Repte</b></summary>
-  Suposeu que en lloc de 3 tenim $10^5$ joguines diferents. Com resoldríeu el problema?
+  Suposeu que en lloc de 3 tenim $10^5$ joguines diferents. Com resoldríeu aleshores el problema?
 </details>
