@@ -74,3 +74,8 @@ sumes = [x, y, z, x + y, x + z, y + z, x + y + z]
 print("si" if any(map(lambda x : x%4 == 0, sumes)) else "no")
 ```
 </details>
+
+<details>
+  <summary><b>Repte</b></summary>
+  Suposeu que en lloc de 3 tenim $10^5$ joguines diferents. Com resoldríeu el problema?
+</details>
