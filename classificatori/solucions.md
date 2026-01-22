@@ -108,7 +108,7 @@ int main() {
 ```
 </details>
 
-Observeu que no ens diuen el nombre de casos que ha de resoldre el nostre problema (el fitxer d'entrada pot tenir moltes línies). Per aquest motiu, a la solució anterior utilitzem l'estructura
+Observeu que a l'enunciat no ens diuen el nombre de casos que ha de resoldre el nostre programa (el fitxer d'entrada pot tenir moltes línies). Per aquest motiu, a la solució anterior utilitzem l'estructura
 ```cpp
 int x;
 while(cin >> x) {
