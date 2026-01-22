@@ -254,7 +254,33 @@ on estem suposant que `x` i `y` són de tipus `string`.
 <summary><b>Codi (C++)</b></summary>
 
 ```cpp
+#include<bits/stdc++.h>
+using namespace std;
 
+int main() {
+  int n;
+  while(cin >> n) {
+    vector<pair<int,int>> v;
+    for(int i = 0; i < n; ++i) {
+      int c, a;
+      cin >> c >> a;
+      v.push_back({c, 0});
+      v.push_back({a, 1});
+    }
+    sort(v.begin(), v.end());
+    int maxim = 0;
+    int actual = 0;
+    for(int i = 0; i < 2*n; ++i) {
+      if(v[i].second)
+        --actual;
+      else {
+        ++actual;
+        maxim = max(maxim, actual);
+      }
+    }
+    cout << maxim << endl;
+  } 
+}
 ```
 </details>
 
@@ -263,7 +289,17 @@ on estem suposant que `x` i `y` són de tipus `string`.
   <summary><b>Codi (Python3)</b></summary>
 
 ```py
+from yogi import scan
 
+n = scan(int)
+while n is not None:
+  a = sorted([(scan(int), x) for _ in range(n) for x in range(2)])
+  maxim = actual = 0
+  for (_, y) in a:
+    actual += 1 if y == 0 else -1
+    maxim = max(maxim, actual)
+  print(maxim)
+  n = scan(int)
 ```
 </details>
 
