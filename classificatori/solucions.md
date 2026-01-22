@@ -87,7 +87,7 @@ Les cases amb número parell passen de tenir números $(2, 4, 6, 8, \dots)$ a $(
 
 Per altra banda, les cases amb número senar passen de tenir números $(1, 3, 5, 7, \dots)$ a $(1, 2, 3, 4, \dots)$ . És a dir, la casa amb número $x$ passa a tenir el número $(x + 1)/2$.
 
-Així doncs, per resoldre el problema comprovem primer si el nombre que ens donen és parell o senar i, depenent d'això, apliquem la fórmula corresponent.
+Així doncs, per resoldre el problema, comprovem primer si el nombre que ens donen és parell o senar i, depenent d'això, apliquem la fórmula corresponent.
 
 <details>
 <summary><b>Codi (C++)</b></summary>
@@ -108,14 +108,14 @@ int main() {
 ```
 </details>
 
-Observeu que no ens diuen el nombre de casos que ha de resoldre el nostre problema (el fitxer d'entrada pot tenir moltes línies). Per aquest motiu a la solució anterior utilitzem l'estructura
+Observeu que no ens diuen el nombre de casos que ha de resoldre el nostre problema (el fitxer d'entrada pot tenir moltes línies). Per aquest motiu, a la solució anterior utilitzem l'estructura
 ```cpp
 int x;
 while(cin >> x) {
   //...
 }
 ```
-que va llegint enters $x$ del fitxer d'entrada fins a que arriba el final del fitxer, moment en el qual surt del bucle (internament, això passa perquè la funció `std::cin` retorna un objecte que, si es converteix a tipus `bool`, retorna `false` en cas que l'última lectura que ha intentat fer ha fallat - <a href="https://en.cppreference.com/w/cpp/io/basic_ios/operator_bool">vegeu enllaç</a>).
+que va llegint enters $x$ del fitxer d'entrada fins que arriba al final del fitxer, moment en el qual surt del bucle (internament, això passa perquè la funció `std::cin` retorna un objecte que, si es converteix a tipus `bool`, retorna `false` en cas que l'última lectura hagi fallat - <a href="https://en.cppreference.com/w/cpp/io/basic_ios/operator_bool">vegeu enllaç</a>).
 
 A continuació teniu la versió en Python del mateix codi:
 
@@ -135,7 +135,7 @@ while x is not None:
 ```
 </details>
 
-Observeu que utilitzem la funció `scan`, de la llibreria `yogi`, per imitar el comportament que té `while(cin >> x)` en C++. Concretament, `scan(int)` retorna o bé un enter, o bé un objecte de tipus `None`, en cas que s'hagi arribat al final del fitxer d'entrada. Així doncs, amb un bucle de la forma
+Observeu que utilitzem la funció `scan`, de la llibreria `yogi`, per imitar el comportament que té `while(cin >> x)` en C++. Concretament, `scan(int)` retorna o bé un enter, o bé un objecte amb valor `None`, en cas que s'hagi arribat al final del fitxer d'entrada. Així doncs, amb un bucle de la forma
 ```py
 x = scan(int)
 while x is not None:
