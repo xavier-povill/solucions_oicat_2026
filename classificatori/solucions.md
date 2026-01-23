@@ -183,7 +183,7 @@ Per comprovar si els dos nombres són consecutius utilitzem `(x + 1) % 100000 ==
 També era possible treballar només amb enters. Aleshores, per trobar quants dígits finals tenen en comú, comprovem primer si l'últim dígit és igual (fent `x % 10 == y % 10`) i, en cas que ho sigui, eliminem l'últim dígit (fent `x /= 10` i `y /= 10`). Ens quedaria el següent codi:
 
 <details>
-<summary><b>Codi alternatiu(C++)</b></summary>
+<summary><b>Codi alternatiu (C++)</b></summary>
 
 ```cpp
 #include <bits/stdc++.h>
