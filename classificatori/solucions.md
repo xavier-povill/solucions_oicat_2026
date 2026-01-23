@@ -303,13 +303,31 @@ while n is not None:
 ```
 </details>
 
-## [Problema C5. Parell o senar?](https://jutge.org/problems/66510) <a name="C5"/>
+## [Problema C5. Parell o senar?](https://jutge.org/problems/P66510) <a name="C5"/>
 
 <details>
 <summary><b>Codi (C++)</b></summary>
 
 ```cpp
+#include<bits/stdc++.h>
+using namespace std;
 
+int main() {
+  int n;
+  while(cin >> n) {
+    int parells = 0;
+    int senars = 0;
+    for(int i = 0; i < n; ++i) {
+      int x;
+      cin >> x;
+      (x%2 ? senars : parells)++;
+    }
+    if(senars%4 == 0 or (senars%4 == 3 and parells%2 == 0))
+      cout << "Bernat" << endl;
+    else
+      cout << "Anna" << endl;
+  }
+} 
 ```
 </details>
 
@@ -318,7 +336,14 @@ while n is not None:
   <summary><b>Codi (Python3)</b></summary>
 
 ```py
+from yogi import scan
 
+n = scan(int)
+while n is not None:
+  parells = [scan(int) % 2 for _ in range(n)].count(0)
+  senars = n - parells
+  print("Bernat" if senars % 4 == 0 or senars % 4 == 3 and parells % 2 == 0 else "Anna")
+  n = scan(int)
 ```
 </details>
 
