@@ -353,18 +353,103 @@ while n is not None:
 <summary><b>Codi (C++)</b></summary>
 
 ```cpp
+#include<bits/stdc++.h>
+using namespace std;
 
+vector<vector<int>> G;
+vector<int> grau;
+vector<bool> vist;
+
+void DFS(int v, int& vertexos, int& arestes) {
+  if(vist[v])
+    return;
+  ++vertexos;
+  arestes += grau[v];
+  vist[v] = true;
+  for(int u : G[v])
+    if(not vist[u])
+      DFS(u, vertexos, arestes);
+}
+
+int main() {
+  int n;
+  while(cin >> n) {
+    G = vector<vector<int>>(n);
+    grau = vector<int>(n, 0);
+    for(int i = 0; i < n; ++i) {
+      int u, v;
+      cin >> u >> v;
+      G[u].push_back(v);
+      G[v].push_back(u);
+      grau[u]++; 
+      grau[v]++;
+    }
+    vist = vector<bool>(n, false);
+    bool valid = true;
+    for(int i = 0; i < n and valid; ++i) {
+      if(not vist[i]) {
+        int vertexos = 0;
+        int arestes = 0;
+        DFS(i, vertexos, arestes);
+        if(2*vertexos != arestes)
+          valid = false;
+      }
+    }
+    cout << (valid? "SI" : "NO") << endl;
+  } 
+}
 ```
 </details>
-
 
 <details>
-  <summary><b>Codi (Python3)</b></summary>
+<summary><b>Codi alternatiu (C++)</b></summary>
 
-```py
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
 
+int main() {
+  int n;
+  while(cin >> n) {
+    vector<vector<int>> G(n);
+    vector<int> grau(n, 0);
+    for(int i = 0; i < n; ++i) {
+      int u, v;
+      cin >> u >> v;
+      G[u].push_back(v);
+      G[v].push_back(u);
+      grau[u]++; 
+      grau[v]++;
+    }
+    vector<bool> vist(n, false);
+    int vertexos, arestes;
+
+    function<void(int)> DFS = [&](int v) {
+      if(vist[v])
+        return;
+      vist[v] = true;
+      vertexos++;
+      arestes += grau[v];
+      for(int u : G[v])
+        if(not vist[u])
+          DFS(u);
+    };
+
+    bool valid = true;
+    for(int i = 0; i < n and valid; ++i) {
+      if(not vist[i]) {
+        vertexos = arestes = 0;
+        DFS(i);
+        if(2*vertexos != arestes)
+          valid = false;
+      }
+    }
+    cout << (valid? "SI" : "NO") << endl;
+  } 
+}
 ```
 </details>
+
 
 ## [Problema C7. Arbres diferents](https://jutge.org/problems/P20665) <a name="C7"/>
 
@@ -377,29 +462,12 @@ while n is not None:
 </details>
 
 
-<details>
-  <summary><b>Codi (Python3)</b></summary>
-
-```py
-
-```
-</details>
-
 ## [Problema C8. Esperit nadalenc](https://jutge.org/problems/P19910) <a name="C8"/>
 
 <details>
 <summary><b>Codi (C++)</b></summary>
 
 ```cpp
-
-```
-</details>
-
-
-<details>
-  <summary><b>Codi (Python3)</b></summary>
-
-```py
 
 ```
 </details>
