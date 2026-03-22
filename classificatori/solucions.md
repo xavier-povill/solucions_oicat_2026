@@ -457,7 +457,64 @@ int main() {
 <summary><b>Codi (C++)</b></summary>
 
 ```cpp
+#include<bits/stdc++.h>
+using namespace std;
 
+int main() {
+  int n;
+  while(cin >> n) {
+    vector<vector<int>> G(n);
+    vector<pair<int,int>> grau(n);
+    for(int i = 0; i < n; ++i)
+      grau[i] = {i + 1, 0};
+    for(int i = 0; i < n - 1; ++i) {
+      int u, v;
+      cin >> u >> v;
+      u--; v--;
+      G[u].push_back(v);
+      G[v].push_back(u);
+      grau[u].second++; grau[v].second++;
+    }
+
+    // Ordenem els vertexs de menor a major grau.
+    sort(grau.begin(), grau.end(), [&](pair<int,int> const& lhs, pair<int,int> const& rhs) {
+      return lhs.second < rhs.second;
+    });
+
+    // Construim un cami amb els vertexos que abans tenien grau 1.
+    // Afegim els vertexos que abans tenien grau >= 2 com a fulles
+    //   que pengen del primer i l'ultim vertex del cami.
+    int primer, ultim;
+    primer = ultim = grau[0].first;
+    bool primer_cobert, ultim_cobert;
+    primer_cobert = ultim_cobert = false;
+    vector<pair<int,int>> arestes;
+    for(int i = 1; i < n; ++i) {
+      if(grau[i].second == 1) {
+        arestes.push_back({ultim, grau[i].first});
+        ultim = grau[i].first;
+      }
+      else if(not primer_cobert) {
+        arestes.push_back({primer, grau[i].first});
+        primer_cobert = true;
+      }
+      else {
+        arestes.push_back({ultim, grau[i].first});
+        ultim_cobert = true;
+      }
+    }
+
+    if(primer_cobert and ultim_cobert) {
+      cout << "SI";
+      for(pair<int,int> p : arestes) {
+        cout << "  " << p.first << " " << p.second;
+      }
+    }
+    else
+      cout << "NO";
+    cout << endl;
+  } 
+}
 ```
 </details>
 
